@@ -9,24 +9,24 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
+
+const background = require('./img/background/dark_embroidery.png');
 
 export default class LeaFacts extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        <Image source={background} style={styles.background}>
+          <View style={styles.title}>
+            <Text style={styles.welcome}>
+              #LeaFacts
+            </Text>
+          </View>
+          <View style={styles.content}></View>
+          <View style={styles.footer}></View>
+        </Image>
     );
   }
 }
@@ -34,14 +34,31 @@ export default class LeaFacts extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'column'
+  },
+  background: {
+    width: null,
+    height: null,
+    resizeMode: 'repeat',
+    flex: 1
+  },
+  title: {
+    flex: .1,
+    backgroundColor: 'white'
+  },
+  content: {
+    flex: .8
+  },
+  footer: {
+    flex: .1,
+    backgroundColor: 'white'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 20,
+    paddingTop: 10,
+    color: 'black'
   },
   instructions: {
     textAlign: 'center',
